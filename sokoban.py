@@ -118,3 +118,4 @@ class Sokoban:
 
 sokobanObjeto = Sokoban()
 sokobanObjeto.jugar()
+
