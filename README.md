@@ -65,27 +65,27 @@ Para moverse en el juego el usuario utilizará alguna de las siguientes letras p
 | No. | Función | Kanban | Inicio | Fin | Fecha terminación |
 | --- | --- | --- | --- | --- | --- |
 | 5. | Personaje, pasillo  | Por hacer | [0,4] | [4,0] | - |
-| 6. | Personaje, meta  | Por hacer | [0,2] | [4,6] |- |
+| 6. | Personaje, meta  | Por hacer | [0,2] | [4,5] |- |
 | 7. | Personaje, caja, pasillo | Por hacer | [0,1,4] | [4,0,1] | - |
-| 8. | Personaje, caja,  meta | Por hacer | [0,1,2] | [4,0,5] | - |
-| 9. | Personaje, caja_meta, pasillo | Por hacer | [0,5,4] | [4,6,1] | - |
-| 10. |Personaje, caja_meta, meta | Por hacer | [0,5,2] | [4,6,5] | - |
-| 11. | Personaje_meta, pasillo | Por hacer | [6,4] | [2,0] | - |
-| 12. | Personaje_meta, meta | Por hacer | [6,2] | [2,6] | - |
-| 13. | Personaje_meta, caja, pasillo | Por hacer | [6,1,4] | [2,0,1] | - |
-| 14. | Personaje_meta, caja, meta | Por hacer | [6,1,2] | [2,0,5] | - |
-| 15. | Personaje_meta, caja_meta, pasillo | Por hacer | [6,5,4] | [2,6,1] | - |
-| 16. | Personaje_meta, caja_meta, meta | Por hacer | [6,5,2] | [2,6,5] | - |
+| 8. | Personaje, caja,  meta | Por hacer | [0,1,2] | [4,0,6] | - |
+| 9. | Personaje, caja_meta, pasillo | Por hacer | [0,6,4] | [4,5,1] | - |
+| 10. |Personaje, caja_meta, meta | Por hacer | [0,6,2] | [4,5,6] | - |
+| 11. | Personaje_meta, pasillo | Por hacer | [5,4] | [2,0] | - |
+| 12. | Personaje_meta, meta | Por hacer | [5,2] | [2,5] | - |
+| 13. | Personaje_meta, caja, pasillo | Por hacer | [5,1,4] | [2,0,1] | - |
+| 14. | Personaje_meta, caja, meta | Por hacer | [5,1,2] | [2,0,6] | - |
+| 15. | Personaje_meta, caja_meta, pasillo | Por hacer | [5,6,4] | [2,5,1] | - |
+| 16. | Personaje_meta, caja_meta, meta | Por hacer | [5,6,2] | [2,5,6] | - |
 
 ## Izquierda
 
 | No. | Función | Kanban | Fecha terminación |
 | --- | --- | --- | --- |
 | 17. | Personaje y espacio | Por hacer  | [4,0] | [0,4] | - |
-| 18. | Personaje y meta | Por hacer  | [2,0] | [6,4] | - |
+| 18. | Personaje y meta | Por hacer  | [2,0] | [5,4] | - |
 | 19. | Personaje, caja y espacio | Por hacer  | [4,1,0] | [1,0,4] | - |
-| 20. | Personaje, caja y meta | Por hacer  | [2,1,0] | [5,0,4] | - |
-| 21. | Personaje, caja_meta y espacio | Por hacer  | [4,5,0] | [1,6,4] | - | #aqui me quede
+| 20. | Personaje, caja y meta | Por hacer  | [2,1,0] | [6,0,4] | - |
+| 21. | Personaje, caja_meta y espacio | Por hacer  | [4,6,0] | [1,5,4] | - | #aqui me quede
 | 22. | Personaje, caja_meta y meta | Por hacer  | [0,4] | [4,0] | - |
 | 23. | Personaje_meta y espacio | Por hacer  | [0,4] | [4,0] | - |
 | 24. | Personaje_meta y meta | Por hacer  | [0,4] | [4,0] | - |
