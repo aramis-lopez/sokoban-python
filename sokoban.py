@@ -10,10 +10,10 @@ class Sokoban:
             [3,3,3,3,3,3,3,3,3,3,3],
             [3,4,4,4,4,4,4,4,4,4,3],
             [3,4,4,4,4,4,4,4,4,4,3],
-            [3,4,4,2,4,4,1,4,4,4,3],
-            [3,4,4,4,4,4,4,4,4,4,3],
-            [3,4,4,4,4,4,4,4,4,4,3],
-            [3,4,4,2,4,4,0,1,4,4,3],
+            [3,4,4,2,2,2,4,1,4,4,3],
+            [3,4,4,4,2,4,4,4,4,4,3],
+            [3,4,4,4,2,4,4,4,4,4,3],
+            [3,4,4,4,4,4,0,1,4,4,3],
             [3,4,4,4,4,4,4,4,4,4,3],
             [3,3,3,3,3,3,3,3,3,3,3]
         ]
@@ -44,6 +44,8 @@ class Sokoban:
             #[posicion_actual, posicion_destino, caja_destino]
             self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila][self.personaje_columna -1], self.mapa[self.personaje_fila][self.personaje_columna - 2] = 4, self.mapa[self.personaje_fila][self.personaje_columna], 6
             self.personaje_columna -= 1
+
+        # elif(self.mapa[self.personaje_fila][self.personaje_columna])
         else: #Pared alado de la caja
             print('No se puede mover la caja, tienes una pared.')
             return self.mapa
@@ -60,16 +62,35 @@ class Sokoban:
                 self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila][self.personaje_columna -1] = self.mapa[self.personaje_fila][self.personaje_columna -1], self.mapa[self.personaje_fila][self.personaje_columna]
                 self.personaje_columna -= 1    
         elif self.mapa[self.personaje_fila][self.personaje_columna -1] == 2: #validar si tiene meta
-                #[posicion_actual, posicion_destino] para convertirnos en personaje meta sin tener una caja enfrente
-                self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila][self.personaje_columna -1] = 4, 5,
-                self.personaje_columna -= 1
+                if(self.mapa[self.personaje_fila][self.personaje_columna]) == 5: #validar si somos personaje meta
+                 #[posicion_actual, posicion_destino] para convertirnos en personaje meta sin tener una caja enfrente
+                 self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila][self.personaje_columna -1] = 2, 5,
+                 self.personaje_columna -= 1
+                else:
+                    self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila][self.personaje_columna -1] = 4, 5,
+                    self.personaje_columna -= 1 #si no somos personaje meta dejaremos un espacio
         elif self.mapa[self.personaje_fila][self.personaje_columna -1] == 1: #Valida si tienes caja
             self.mover_izquierda_caja()
         elif self.mapa[self.personaje_fila][self.personaje_columna -1] == 6: #Valida si tienes caja_meta
             if(self.mapa[self.personaje_fila][self.personaje_columna -2]) == 4: #Validar si tienes pasillo alado de la caja_meta
+                if(self.mapa[self.personaje_fila][self.personaje_columna]) == 5:#valida si somos personaje meta
+                    #[posicion_actual, posicion_destio, ceja_meta_destino]
+                    self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila][self.personaje_columna -1], self.mapa[self.personaje_fila][self.personaje_columna - 2] = 2, 5, 1
+                    self.personaje_columna -= 1
+                else:
                 #[posicion_actual, posicion_destino, caja_meta-destino]
-                self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila][self.personaje_columna -1], self.mapa[self.personaje_fila][self.personaje_columna - 2] = 4, 5, 1
-                self.personaje_columna -= 1
+                    self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila][self.personaje_columna -1], self.mapa[self.personaje_fila][self.personaje_columna - 2] = 4, 5, 1
+                    self.personaje_columna -= 1
+            elif self.mapa[self.personaje_fila][self.personaje_columna -1] == 6: #valida si tenemos caja_meta
+                if(self.mapa[self.personaje_fila][self.personaje_columna -2]) == 2: #valida si tenemos meta enfrente de caja_meta
+                    if(self.mapa[self.personaje_fila][self.personaje_columna]) == 5: #valida si somos personaje meta 
+                        #[posicion_actual, posicion_destino, posicion_caja]
+                        self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila][self.personaje_columna -1], self.mapa[self.personaje_fila][self.personaje_columna - 2] = 2, 5, 6
+                        self.personaje_columna -= 1
+                    else:
+                        self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila][self.personaje_columna -1], self.mapa[self.personaje_fila][self.personaje_columna - 2] = 4, 5, 6
+                        self.personaje_columna -= 1
+                        #salida
         else:
             print('No se puede mover al jugar, se llego al limite del mapa')
             return self.mapa
@@ -119,16 +140,35 @@ class Sokoban:
                 self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila][self.personaje_columna +1] = self.mapa[self.personaje_fila][self.personaje_columna +1], self.mapa[self.personaje_fila][self.personaje_columna]
                 self.personaje_columna += 1    
         elif self.mapa[self.personaje_fila][self.personaje_columna +1] == 2: #validar si tiene meta
-                #[posicion_actual, posicion_destino] para convertirnos en personaje meta sin tener una caja enfrente
-                self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila][self.personaje_columna +1] = 4, 5,
-                self.personaje_columna += 1
+                if(self.mapa[self.personaje_fila][self.personaje_columna]) == 5: #validar si somos personaje meta
+                 #[posicion_actual, posicion_destino] para convertirnos en personaje meta sin tener una caja enfrente
+                 self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila][self.personaje_columna +1] = 2, 5,
+                 self.personaje_columna += 1
+                else:
+                    self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila][self.personaje_columna +1] = 4, 5,
+                    self.personaje_columna += 1       
         elif self.mapa[self.personaje_fila][self.personaje_columna +1] == 1: #Valida si tienes caja
             self.mover_derecha_caja()
         elif self.mapa[self.personaje_fila][self.personaje_columna +1] == 6: #Valida si tienes caja_meta
             if(self.mapa[self.personaje_fila][self.personaje_columna +2]) == 4: #Validar si tienes pasillo alado de la caja_meta
+                if(self.mapa[self.personaje_fila][self.personaje_columna]) == 5:#valida si somos personaje meta
+                    #[posicion_actual, posicion_destio, ceja_meta_destino]
+                    self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila][self.personaje_columna + 1], self.mapa[self.personaje_fila][self.personaje_columna + 2] = 2, 5, 1
+                    self.personaje_columna += 1
+                else:
                 #[posicion_actual, posicion_destino, caja_meta-destino]
-                self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila][self.personaje_columna +1], self.mapa[self.personaje_fila][self.personaje_columna + 2] = 4, 5, 1
-                self.personaje_columna += 1
+                    self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila][self.personaje_columna + 1], self.mapa[self.personaje_fila][self.personaje_columna + 2] = 4, 5, 1
+                    self.personaje_columna += 1
+            elif self.mapa[self.personaje_fila][self.personaje_columna + 1] == 6: #valida si tenemos caja_meta
+                if(self.mapa[self.personaje_fila][self.personaje_columna + 2]) == 2: #valida si tenemos meta enfrente de caja_meta
+                    if(self.mapa[self.personaje_fila][self.personaje_columna]) == 5: #valida si somos personaje meta 
+                        #[posicion_actual, posicion_destino, posicion_caja]
+                        self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila][self.personaje_columna + 1], self.mapa[self.personaje_fila][self.personaje_columna + 2] = 2, 5, 6
+                        self.personaje_columna += 1
+                    else:
+                        self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila][self.personaje_columna + 1], self.mapa[self.personaje_fila][self.personaje_columna + 2] = 4, 5, 6
+                        self.personaje_columna += 1
+                        #salida
         else:
             print('No se puede mover al jugar, se llego al limite del mapa')
             return self.mapa
@@ -152,18 +192,54 @@ class Sokoban:
             return self.mapa
     
 
-    def mover_arriba(self):  
+    def mover_arriba(self): 
         if self.mapa[self.personaje_fila -1][self.personaje_columna] == 4: #Validar si hay pasillo
-                #Movemos a arriba
-                self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila-1][self.personaje_columna] = self.mapa[self.personaje_fila -1][self.personaje_columna], self.mapa[self.personaje_fila][self.personaje_columna]
+           if(self.mapa[self.personaje_fila][self.personaje_columna]) == 5: #validar si somos personaje_meta
+                #[posicion_actual, posicion_destino]
+                self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila -1][self.personaje_columna] = 2, 0,
                 self.personaje_fila -= 1
+           else:
+                #Movemos personaje a la izquierda
+                self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila -1][self.personaje_columna] = self.mapa[self.personaje_fila -1][self.personaje_columna], self.mapa[self.personaje_fila][self.personaje_columna]
+                self.personaje_fila -= 1    
+        elif self.mapa[self.personaje_fila -1][self.personaje_columna] == 2: #validar si tiene meta
+                if(self.mapa[self.personaje_fila][self.personaje_columna]) == 5: #validar si somos personaje meta
+                 #[posicion_actual, posicion_destino] para convertirnos en personaje meta sin tener una caja arriba
+                 self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila - 1][self.personaje_columna] = 2, 5,
+                 self.personaje_fila -= 1
+                else:
+                    self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila - 1][self.personaje_columna] = 4, 5,
+                    self.personaje_fila -= 1 
         elif self.mapa[self.personaje_fila -1][self.personaje_columna] == 1: #Valida si tienes caja
             self.mover_arriba_caja()
         elif self.mapa[self.personaje_fila -1][self.personaje_columna] == 6: #Valida si tienes caja_meta
-            if(self.mapa[self.personaje_fila -2][self.personaje_columna]) == 4: #Validar si tienes pasillo alado de la caja_meta
+            if(self.mapa[self.personaje_fila -2][self.personaje_columna]) == 4: #Validar si tienes pasillo arriba de la caja_meta
+                if(self.mapa[self.personaje_fila][self.personaje_columna]) == 5:#valida si somos personaje meta
+                    #[posicion_actual, posicion_destio, ceja_meta_destino]
+                    self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila - 1][self.personaje_columna], self.mapa[self.personaje_fila -2][self.personaje_columna] = 2, 5, 1
+                    self.personaje_fila -= 1
+                else:
                 #[posicion_actual, posicion_destino, caja_meta-destino]
-                self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila -1][self.personaje_columna], self.mapa[self.personaje_fila - 2][self.personaje_columna] = 4, 5, 1
-                self.personaje_fila -= 1
+                    self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila - 1][self.personaje_columna], self.mapa[self.personaje_fila - 2][self.personaje_columna] = 4, 5, 1
+                    self.personaje_fila -= 1
+            elif self.mapa[self.personaje_fila - 1][self.personaje_columna] == 6: #valida si tenemos caja_meta
+                if(self.mapa[self.personaje_fila - 2][self.personaje_columna]) == 2: #valida si tenemos meta enfrente de caja_meta
+                    if(self.mapa[self.personaje_fila][self.personaje_columna]) == 5: #valida si somos personaje meta 
+                        #[posicion_actual, posicion_destino, posicion_caja]
+                        self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila - 1][self.personaje_columna], self.mapa[self.personaje_fila - 2][self.personaje_columna] = 2, 5, 6
+                        self.personaje_fila -= 1 
+                    else:
+                        self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila - 1][self.personaje_columna], self.mapa[self.personaje_fila - 2][self.personaje_columna] = 4, 5, 6
+                        self.personaje_fila -= 1
+                        #salida
+        
+        else: #pared arriba de la caja
+            print('No se puede mover la caja, tienes una pared.')
+            return self.mapa
+
+            
+
+        
 
 
     def mover_abajo_caja(self):
@@ -187,16 +263,48 @@ class Sokoban:
 
     def mover_abajo(self):  
         if self.mapa[self.personaje_fila +1][self.personaje_columna] == 4: #Validar si hay pasillo
-                #Movemos personaje a abajo
-                self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila+1][self.personaje_columna] = self.mapa[self.personaje_fila +1][self.personaje_columna], self.mapa[self.personaje_fila][self.personaje_columna]
+           if(self.mapa[self.personaje_fila][self.personaje_columna]) == 5: #validar si somos personaje_meta
+                #[posicion_actual, posicion_destino]
+                self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila +1][self.personaje_columna] = 2, 0,
                 self.personaje_fila += 1
+           else:
+                #Movemos personaje a la izquierda
+                self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila +1][self.personaje_columna] = self.mapa[self.personaje_fila +1][self.personaje_columna], self.mapa[self.personaje_fila][self.personaje_columna]
+                self.personaje_fila += 1    
+        elif self.mapa[self.personaje_fila +1][self.personaje_columna] == 2: #validar si tiene meta
+                if(self.mapa[self.personaje_fila][self.personaje_columna]) == 5: #validar si somos personaje meta
+                 #[posicion_actual, posicion_destino] para convertirnos en personaje meta sin tener una caja abajo
+                 self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila + 1][self.personaje_columna] = 2, 5,
+                 self.personaje_fila += 1
+                else:
+                    self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila + 1][self.personaje_columna] = 4, 5,
+                    self.personaje_fila += 1
         elif self.mapa[self.personaje_fila +1][self.personaje_columna] == 1: #Valida si tienes caja
             self.mover_abajo_caja()
         elif self.mapa[self.personaje_fila +1][self.personaje_columna] == 6: #Valida si tienes caja_meta
-            if(self.mapa[self.personaje_fila +2][self.personaje_columna]) == 4: #Validar si tienes pasillo alado de la caja_meta
+            if(self.mapa[self.personaje_fila +2][self.personaje_columna]) == 4: #Validar si tienes pasillo abajo de la caja_meta
+                if(self.mapa[self.personaje_fila][self.personaje_columna]) == 5:#valida si somos personaje meta
+                    #[posicion_actual, posicion_destio, ceja_meta_destino]
+                    self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila + 1][self.personaje_columna], self.mapa[self.personaje_fila + 2][self.personaje_columna] = 2, 5, 1
+                    self.personaje_fila += 1
+                else:
                 #[posicion_actual, posicion_destino, caja_meta-destino]
-                self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila +1][self.personaje_columna], self.mapa[self.personaje_fila + 2][self.personaje_columna] = 4, 5, 1
-                self.personaje_fila += 1
+                    self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila + 1][self.personaje_columna], self.mapa[self.personaje_fila + 2][self.personaje_columna] = 4, 5, 1
+                    self.personaje_fila += 1
+            elif self.mapa[self.personaje_fila + 1][self.personaje_columna] == 6: #valida si tenemos caja_meta
+                if(self.mapa[self.personaje_fila + 2][self.personaje_columna]) == 2: #valida si tenemos meta abajo de caja_meta
+                    if(self.mapa[self.personaje_fila][self.personaje_columna]) == 5: #valida si somos personaje meta 
+                        #[posicion_actual, posicion_destino, posicion_caja]
+                        self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila + 1][self.personaje_columna], self.mapa[self.personaje_fila + 2][self.personaje_columna] = 2, 5, 6
+                        self.personaje_fila += 1 
+                    else:
+                        self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila + 1][self.personaje_columna], self.mapa[self.personaje_fila + 2][self.personaje_columna] = 4, 5, 6
+                        self.personaje_fila += 1
+                        #salida
+        
+        else: #pared arriba de la caja
+            print('No se puede mover la caja, tienes una pared.')
+            return self.mapa
     
     
     def jugar(self):
@@ -208,4 +316,3 @@ class Sokoban:
 
 sokobanObjeto = Sokoban()
 sokobanObjeto.jugar()
-
