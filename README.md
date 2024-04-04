@@ -53,7 +53,7 @@ Para moverse en el juego el usuario utilizará alguna de las siguientes letras p
 ## 4. Función a implementar
 
 | No. |Función | Kanban | Fecha terminación |
-| --- | --- | --- | --- |
+| --- | --- | --- | Mar 25, 2024 |
 | 0. | Cargar el siguiente nivel. | Por hacer | - | | - |
 | 1. | Repetir el juego hasta terminar el nivel. | Por hacer | - | | - |
 | 2. | Imprimir mapa.| Por hacer | - |
@@ -63,70 +63,69 @@ Para moverse en el juego el usuario utilizará alguna de las siguientes letras p
 ## Derecha
 
 | No. | Función | Kanban | Inicio | Fin | Fecha terminación |
-| --- | --- | --- | --- | --- | --- |
-| 5. | Personaje, pasillo  | Por hacer | [0,4] | [4,0] | - |
-| 6. | Personaje, meta  | Por hacer | [0,2] | [4,5] |- |
-| 7. | Personaje, caja, pasillo | Por hacer | [0,1,4] | [4,0,1] | - |
-| 8. | Personaje, caja,  meta | Por hacer | [0,1,2] | [4,0,6] | - |
-| 9. | Personaje, caja_meta, pasillo | Por hacer | [0,6,4] | [4,5,1] | - |
-| 10. |Personaje, caja_meta, meta | Por hacer | [0,6,2] | [4,5,6] | - |
-| 11. | Personaje_meta, pasillo | Por hacer | [5,4] | [2,0] | - |
-| 12. | Personaje_meta, meta | Por hacer | [5,2] | [2,5] | - |
-| 13. | Personaje_meta, caja, pasillo | Por hacer | [5,1,4] | [2,0,1] | - |
-| 14. | Personaje_meta, caja, meta | Por hacer | [5,1,2] | [2,0,6] | - |
-| 15. | Personaje_meta, caja_meta, pasillo | Por hacer | [5,6,4] | [2,5,1] | - |
-| 16. | Personaje_meta, caja_meta, meta | Por hacer | [5,6,2] | [2,5,6] | - |
+| --- | --- | --- | --- | --- | Mar 25, 2024 |
+| 5. | Personaje, pasillo  | hecho | [0,4] | [4,0] | - |
+| 6. | Personaje, meta  | hecho | [0,2] | [4,5] |- |
+| 7. | Personaje, caja, pasillo | hecho | [0,1,4] | [4,0,1] | - |
+| 8. | Personaje, caja,  meta | hecho | [0,1,2] | [4,0,6] | - |
+| 9. | Personaje, caja_meta, pasillo | hecho | [0,6,4] | [4,5,1] | - |
+| 10. |Personaje, caja_meta, meta | hecho | [0,6,2] | [4,5,6] | - |
+| 11. | Personaje_meta, pasillo | hecho | [5,4] | [2,0] | - |
+| 12. | Personaje_meta, meta | hecho | [5,2] | [2,5] | - |
+| 13. | Personaje_meta, caja, pasillo | hecho | [5,1,4] | [2,0,1] | - |
+| 14. | Personaje_meta, caja, meta | hecho | [5,1,2] | [2,0,6] | - |
+| 15. | Personaje_meta, caja_meta, pasillo | hecho | [5,6,4] | [2,5,1] | - |
+| 16. | Personaje_meta, caja_meta, meta | hecho | [5,6,2] | [2,5,6] | - |
 
 ## Izquierda
 
 | No. | Función | Kanban | Fecha terminación |
-| --- | --- | --- | --- |
-| 17. | Personaje y espacio | Por hacer  | [4,0] | [0,4] | - |
-| 18. | Personaje y meta | Por hacer  | [2,0] | [5,4] | - |
-| 19. | Personaje, caja y espacio | Por hacer  | [4,1,0] | [1,0,4] | - |
-| 20. | Personaje, caja y meta | Por hacer  | [2,1,0] | [6,0,4] | - |
-| 21. | Personaje, caja_meta y espacio | Por hacer  | [4,6,0] | [1,5,4] | - | #aqui me quede
-| 22. | Personaje, caja_meta y meta | Por hacer  | [0,4] | [4,0] | - |
-| 23. | Personaje_meta y espacio | Por hacer  | [0,4] | [4,0] | - |
-| 24. | Personaje_meta y meta | Por hacer  | [0,4] | [4,0] | - |
-| 25. | Personaje_meta, caja y espacio | Por hacer  | [0,4] | [4,0] | - |
-| 26. | Personaje_meta, caja y meta | Por hacer  | [0,4] | [4,0] | - |
-| 27. | Personaje_meta, caja_meta y espacio | Por hacer  | [0,4] | [4,0] | - |
-| 28. | Personaje_meta, caja_meta y meta | Por hacer  | [0,4] | [4,0] | - |
+| --- | --- | --- | Mar 25, 2024 |
+| 17. | Personaje y espacio | hecho  | [4,0] | [0,4] | - |
+| 18. | Personaje y meta | hecho  | [2,0] | [5,4] | - |
+| 19. | Personaje, caja y espacio | hecho  | [4,1,0] | [1,0,4] | - |
+| 20. | Personaje, caja y meta | hecho  | [2,1,0] | [6,0,4] | - |
+| 21. | Personaje, caja_meta y espacio | hecho  | [4,6,0] | [1,5,4] | - | 
+| 22. | Personaje, caja_meta y meta | hecho  | [2,6,0] | [6,5,4] | - |
+| 23. | Personaje_meta y espacio | hecho  | [4,5] | [0,2] | - |
+| 24. | Personaje_meta y meta | hecho  | [2,5] | [5,2] | - |
+| 25. | Personaje_meta, caja y espacio | hecho  | [4,1,5] | [1,0,2] | - |
+| 26. | Personaje_meta, caja y meta | hecho  | [2,1,5] | [6,0,2] | - |
+| 27. | Personaje_meta, caja_meta y espacio | hecho  | [4,6,5] | [1,5,2] | - |
+| 28. | Personaje_meta, caja_meta y meta | hecho  | [2,6,5] | [6,5,2] | - |
 
 ## Arriba
-
-| No. | Función | Kanban | Fecha terminación |
-| --- | --- | --- | --- |
-| 29. | Personaje y espacio | Por hacer | - |
-| 30. | Personaje y meta | Por hacer | - |
-| 31. | Personaje, caja y espacio | Por hacer | - |
-| 32. | Personaje, caja y meta | Por hacer | - |
-| 33. | Personaje, caja_meta y espacio | Por hacer | - |
-| 34. | Personaje, caja_meta y meta | Por hacer | - |
-| 35. | Personaje_meta y espacio | Por hacer | - |
-| 36. | Personaje_meta y meta | Por hacer | - |
-| 37. | Personaje_meta, caja y espacio | Por hacer | - |
-| 38. | Personaje_meta, caja y meta | Por hacer | - |
-| 39. | Personaje_meta, caja_meta y espacio | Por hacer | - |
-| 40. | Personaje_meta, caja_meta y meta | Por hacer | - |
+| No. | Función | Kanban | Inicio | Fin | Fecha terminación |
+| --- | --- | --- | --- | --- | Mar 25, 2024 |
+| 5. | Personaje, pasillo  | hecho | [0,4] | [4,0] | - |
+| 6. | Personaje, meta  | hecho | [0,2] | [4,5] |- |
+| 7. | Personaje, caja, pasillo | hecho | [0,1,4] | [4,0,1] | - |
+| 8. | Personaje, caja,  meta | hecho | [0,1,2] | [4,0,6] | - |
+| 9. | Personaje, caja_meta, pasillo | hecho | [0,6,4] | [4,5,1] | - |
+| 10. |Personaje, caja_meta, meta | hecho | [0,6,2] | [4,5,6] | - |
+| 11. | Personaje_meta, pasillo | hecho | [5,4] | [2,0] | - |
+| 12. | Personaje_meta, meta | hecho | [5,2] | [2,5] | - |
+| 13. | Personaje_meta, caja, pasillo | hecho | [5,1,4] | [2,0,1] | - |
+| 14. | Personaje_meta, caja, meta | hecho | [5,1,2] | [2,0,6] | - |
+| 15. | Personaje_meta, caja_meta, pasillo | hecho | [5,6,4] | [2,5,1] | - |
+| 16. | Personaje_meta, caja_meta, meta | hecho | [5,6,2] | [2,5,6] | - |
 
 ## Abajo
-
 | No. | Función | Kanban | Fecha terminación |
-| --- | --- | --- | --- |
-| 41. | Personaje y espacio | Por hacer | - |
-| 42. | Personaje y meta | Por hacer | - |
-| 43. | Personaje, caja y espacio | Por hacer | - |
-| 44. | Personaje, caja y meta | Por hacer | - |
-| 45. | Personaje, caja_meta y espacio | Por hacer | - |
-| 46. | Personaje, caja_meta y meta | Por hacer | - |
-| 47. | Personaje_meta y espacio | Por hacer | - |
-| 48. | Personaje_meta y meta | Por hacer | - |
-| 49. | Personaje_meta, caja y espacio | Por hacer | - |
-| 50. | Personaje_meta, caja y meta | Por hacer | - |
-| 51. | Personaje_meta, caja_meta y espacio | Por hacer | - |
-| 52. | Personaje_meta, caja_meta y meta | Por hacer | - |
+| --- | --- | --- | Mar 25, 2024 |
+| 41. | Personaje y espacio | hecho  | [4,0] | [0,4] | - |
+| 42. | Personaje y meta | hecho  | [2,0] | [5,4] | - |
+| 43. | Personaje, caja y espacio | hecho  | [4,1,0] | [1,0,4] | - |
+| 44. | Personaje, caja y meta | hecho  | [2,1,0] | [6,0,4] | - |
+| 45. | Personaje, caja_meta y espacio | hecho  | [4,6,0] | [1,5,4] | - | 
+| 46. | Personaje, caja_meta y meta | hecho  | [2,6,0] | [6,5,4] | - |
+| 47. | Personaje_meta y espacio | hecho  | [4,5] | [0,2] | - |
+| 48. | Personaje_meta y meta | hecho  | [2,5] | [5,2] | - |
+| 49. | Personaje_meta, caja y espacio | hecho  | [4,1,5] | [1,0,2] | - |
+| 50. | Personaje_meta, caja y meta | hecho  | [2,1,5] | [6,0,2] | - |
+| 51. | Personaje_meta, caja_meta y espacio | hecho  | [4,6,5] | [1,5,2] | - |
+| 52. | Personaje_meta, caja_meta y meta | hecho  | [2,6,5] | [6,5,2] | - |
+
 
 ## Determina si se completo el nivel o no
 

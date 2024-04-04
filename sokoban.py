@@ -9,11 +9,11 @@ class Sokoban:
         self.mapa = [
             [3,3,3,3,3,3,3,3,3,3,3],
             [3,4,4,4,4,4,4,4,4,4,3],
-            [3,4,4,4,4,4,4,4,4,4,3],
+            [3,4,4,4,2,2,4,4,4,4,3],
             [3,4,4,2,2,2,4,1,4,4,3],
-            [3,4,4,4,2,4,4,4,4,4,3],
-            [3,4,4,4,2,4,4,4,4,4,3],
-            [3,4,4,4,4,4,0,1,4,4,3],
+            [3,4,1,4,2,4,4,4,4,4,3],
+            [3,4,4,2,4,2,4,4,4,4,3],
+            [3,4,4,1,4,4,0,1,4,4,3],
             [3,4,4,4,4,4,4,4,4,4,3],
             [3,3,3,3,3,3,3,3,3,3,3]
         ]
@@ -40,6 +40,11 @@ class Sokoban:
                 #[posicion_actual, posicion_destino, caja_destino]
                 self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila][self.personaje_columna -1], self.mapa[self.personaje_fila][self.personaje_columna - 2] = 4, self.mapa[self.personaje_fila][self.personaje_columna], 1
                 self.personaje_columna -= 1
+        elif (self.mapa[self.personaje_fila][self.personaje_columna ]) == 5:
+                if(self.mapa[self.personaje_fila][self.personaje_columna-2]) == 2:
+                    self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila][self.personaje_columna -1], self.mapa[self.personaje_fila][self.personaje_columna - 2] = 2, 0, 6
+                    self.personaje_columna -= 1
+        
         elif(self.mapa[self.personaje_fila][self.personaje_columna -2]) == 2: #Validar si tenemos meta alado de la caja
             #[posicion_actual, posicion_destino, caja_destino]
             self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila][self.personaje_columna -1], self.mapa[self.personaje_fila][self.personaje_columna - 2] = 4, self.mapa[self.personaje_fila][self.personaje_columna], 6
@@ -91,6 +96,7 @@ class Sokoban:
                         self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila][self.personaje_columna -1], self.mapa[self.personaje_fila][self.personaje_columna - 2] = 4, 5, 6
                         self.personaje_columna -= 1
                         #salida
+
         else:
             print('No se puede mover al jugar, se llego al limite del mapa')
             return self.mapa
@@ -120,6 +126,10 @@ class Sokoban:
                 #[posicion_actual, posicion_destino, caja_destino]
                 self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila][self.personaje_columna +1], self.mapa[self.personaje_fila][self.personaje_columna + 2] = 4, self.mapa[self.personaje_fila][self.personaje_columna], 1
                 self.personaje_columna += 1
+        elif (self.mapa[self.personaje_fila][self.personaje_columna ]) == 5:
+                if(self.mapa[self.personaje_fila][self.personaje_columna +2]) == 2:
+                    self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila][self.personaje_columna +1], self.mapa[self.personaje_fila][self.personaje_columna + 2] = 2, 0, 6
+                    self.personaje_columna += 1
         elif(self.mapa[self.personaje_fila][self.personaje_columna +2]) == 2: #Validar si tenemos meta alado de la caja
             #[posicion_actual, posicion_destino, caja_destino]
             self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila][self.personaje_columna +1], self.mapa[self.personaje_fila][self.personaje_columna + 2] = 4, self.mapa[self.personaje_fila][self.personaje_columna], 6
@@ -183,6 +193,10 @@ class Sokoban:
                 #[posicion_actual, posicion_destino, caja_destino]
                 self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila -1][self.personaje_columna], self.mapa[self.personaje_fila - 2][self.personaje_columna] = 4, self.mapa[self.personaje_fila][self.personaje_columna], 1
                 self.personaje_fila -= 1
+        elif (self.mapa[self.personaje_fila][self.personaje_columna ]) == 5:
+                if(self.mapa[self.personaje_fila -2][self.personaje_columna]) == 2:
+                    self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila -1][self.personaje_columna], self.mapa[self.personaje_fila - 2][self.personaje_columna] = 2, 0, 6
+                    self.personaje_fila -= 1
         elif(self.mapa[self.personaje_fila -2][self.personaje_columna]) == 2: #Validar si tenemos meta alado de la caja
             #[posicion_actual, posicion_destino, caja_destino]
             self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila -1][self.personaje_columna], self.mapa[self.personaje_fila - 2][self.personaje_columna] = 4, self.mapa[self.personaje_fila][self.personaje_columna], 6
@@ -252,6 +266,10 @@ class Sokoban:
                 #[posicion_actual, posicion_destino, caja_destino]
                 self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila +1][self.personaje_columna], self.mapa[self.personaje_fila + 2][self.personaje_columna] = 4, self.mapa[self.personaje_fila][self.personaje_columna], 1
                 self.personaje_fila += 1
+        elif (self.mapa[self.personaje_fila][self.personaje_columna ]) == 5:
+                if(self.mapa[self.personaje_fila + 2][self.personaje_columna]) == 2:
+                    self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila + 1][self.personaje_columna ], self.mapa[self.personaje_fila + 2][self.personaje_columna] = 2, 0, 6
+                    self.personaje_fila += 1
         elif(self.mapa[self.personaje_fila +2][self.personaje_columna]) == 2: #Validar si tenemos meta alado de la caja
             #[posicion_actual, posicion_destino, caja_destino]
             self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila +1][self.personaje_columna], self.mapa[self.personaje_fila + 2][self.personaje_columna] = 4, self.mapa[self.personaje_fila][self.personaje_columna], 6
