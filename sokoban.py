@@ -40,13 +40,17 @@ class Sokoban:
 
     def pintar_mapa(self,):
         for fila in self.mapa:
-            print(fila)       
+            print(fila)  
+
     def cambiar_mapa(self):
         #cambia de nivel al ya no aver ninguna caja
         if not any(1 in fila for fila in self.mapa):
             self.mapa = self.mapa1
             self.personaje_columna = 6  # Nuevas coordenadas del personaje
             self.personaje_fila = 6
+            print('***********************')
+            print('    Nivel superado!    ')
+            print('***********************')
 
 # movimientos apoder hacer [2,1,0]-[6,0,4]
     def mover_izquierda_caja(self):
