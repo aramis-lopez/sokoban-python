@@ -3,6 +3,7 @@ class Sokoban:
     mapa = [] # mapa del juego
     personaje_columna = 0
     personaje_fila = 0
+    mapa1 = []
 
     def __init__(self, ):
         #Construir mapa
@@ -11,11 +12,23 @@ class Sokoban:
             [3,4,4,4,4,4,4,4,4,4,3],
             [3,4,4,4,2,2,4,4,4,4,3],
             [3,4,4,2,2,2,4,1,4,4,3],
-            [3,4,1,4,2,4,4,4,4,4,3],
+            [3,4,4,4,2,4,4,4,4,4,3],
             [3,4,4,2,4,2,4,4,4,4,3],
-            [3,4,4,1,4,4,0,1,4,4,3],
+            [3,4,4,1,4,4,0,2,4,4,3],
             [3,4,4,4,4,4,4,4,4,4,3],
             [3,3,3,3,3,3,3,3,3,3,3]
+        ]
+
+        self.mapa1 = [
+            [4,4,4,4,4,4,4,4,4,4,4],
+            [4,4,4,4,4,4,4,4,4,4,4],
+            [4,4,4,4,4,4,4,4,4,4,4],
+            [4,4,4,4,4,4,4,4,4,4,4],
+            [4,4,4,4,1,4,4,2,4,4,4],
+            [4,4,4,4,4,4,4,4,4,4,4],
+            [4,4,4,4,4,4,0,4,4,4,4],
+            [4,4,4,4,4,4,4,4,4,4,4],
+            [4,4,4,4,4,4,4,4,4,4,4]
         ]
 
         #Posicion del jugador
@@ -27,7 +40,13 @@ class Sokoban:
 
     def pintar_mapa(self,):
         for fila in self.mapa:
-            print(fila)
+            print(fila)       
+    def cambiar_mapa(self):
+        #cambia de nivel al ya no aver ninguna caja
+        if not any(1 in fila for fila in self.mapa):
+            self.mapa = self.mapa1
+            self.personaje_columna = 6  # Nuevas coordenadas del personaje
+            self.personaje_fila = 6
 
 # movimientos apoder hacer [2,1,0]-[6,0,4]
     def mover_izquierda_caja(self):
@@ -40,8 +59,8 @@ class Sokoban:
                 #[posicion_actual, posicion_destino, caja_destino]
                 self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila][self.personaje_columna -1], self.mapa[self.personaje_fila][self.personaje_columna - 2] = 4, self.mapa[self.personaje_fila][self.personaje_columna], 1
                 self.personaje_columna -= 1
-        elif (self.mapa[self.personaje_fila][self.personaje_columna ]) == 5:
-                if(self.mapa[self.personaje_fila][self.personaje_columna-2]) == 2:
+        elif (self.mapa[self.personaje_fila][self.personaje_columna ]) == 5: #validamos si somos personaje meta
+                if(self.mapa[self.personaje_fila][self.personaje_columna-2]) == 2: #validar si tiene meta a alado de la caja
                     self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila][self.personaje_columna -1], self.mapa[self.personaje_fila][self.personaje_columna - 2] = 2, 0, 6
                     self.personaje_columna -= 1
         
@@ -103,6 +122,7 @@ class Sokoban:
 
 #los movimintos del personaje
     def mover_personaje(self, direccion):
+
         if direccion.lower() == 'a':
             self.mover_izquierda()
         elif direccion.lower() == 'd':
@@ -126,8 +146,8 @@ class Sokoban:
                 #[posicion_actual, posicion_destino, caja_destino]
                 self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila][self.personaje_columna +1], self.mapa[self.personaje_fila][self.personaje_columna + 2] = 4, self.mapa[self.personaje_fila][self.personaje_columna], 1
                 self.personaje_columna += 1
-        elif (self.mapa[self.personaje_fila][self.personaje_columna ]) == 5:
-                if(self.mapa[self.personaje_fila][self.personaje_columna +2]) == 2:
+        elif (self.mapa[self.personaje_fila][self.personaje_columna ]) == 5:  #validamos si somos personaje meta
+                if(self.mapa[self.personaje_fila][self.personaje_columna +2]) == 2: #validar si tiene meta a alado de la caja
                     self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila][self.personaje_columna +1], self.mapa[self.personaje_fila][self.personaje_columna + 2] = 2, 0, 6
                     self.personaje_columna += 1
         elif(self.mapa[self.personaje_fila][self.personaje_columna +2]) == 2: #Validar si tenemos meta alado de la caja
@@ -193,8 +213,8 @@ class Sokoban:
                 #[posicion_actual, posicion_destino, caja_destino]
                 self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila -1][self.personaje_columna], self.mapa[self.personaje_fila - 2][self.personaje_columna] = 4, self.mapa[self.personaje_fila][self.personaje_columna], 1
                 self.personaje_fila -= 1
-        elif (self.mapa[self.personaje_fila][self.personaje_columna ]) == 5:
-                if(self.mapa[self.personaje_fila -2][self.personaje_columna]) == 2:
+        elif (self.mapa[self.personaje_fila][self.personaje_columna ]) == 5: #validar si somos personaje meta 
+                if(self.mapa[self.personaje_fila -2][self.personaje_columna]) == 2: #validar si tiene meta a alado de la caja
                     self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila -1][self.personaje_columna], self.mapa[self.personaje_fila - 2][self.personaje_columna] = 2, 0, 6
                     self.personaje_fila -= 1
         elif(self.mapa[self.personaje_fila -2][self.personaje_columna]) == 2: #Validar si tenemos meta alado de la caja
@@ -266,8 +286,8 @@ class Sokoban:
                 #[posicion_actual, posicion_destino, caja_destino]
                 self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila +1][self.personaje_columna], self.mapa[self.personaje_fila + 2][self.personaje_columna] = 4, self.mapa[self.personaje_fila][self.personaje_columna], 1
                 self.personaje_fila += 1
-        elif (self.mapa[self.personaje_fila][self.personaje_columna ]) == 5:
-                if(self.mapa[self.personaje_fila + 2][self.personaje_columna]) == 2:
+        elif (self.mapa[self.personaje_fila][self.personaje_columna ]) == 5: #validamos si somos personaje meta
+                if(self.mapa[self.personaje_fila + 2][self.personaje_columna]) == 2 :#validar si tiene meta a alado de la caja
                     self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila + 1][self.personaje_columna ], self.mapa[self.personaje_fila + 2][self.personaje_columna] = 2, 0, 6
                     self.personaje_fila += 1
         elif(self.mapa[self.personaje_fila +2][self.personaje_columna]) == 2: #Validar si tenemos meta alado de la caja
@@ -327,6 +347,7 @@ class Sokoban:
     
     def jugar(self):
         while True:
+            self.cambiar_mapa()
             self.pintar_mapa()
             direccion = input("¿En qué dirección quieres mover al personaje? (a o A - izquierda, d o D - derecha): ")
             self.mover_personaje(direccion)
