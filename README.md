@@ -130,9 +130,9 @@ Para moverse en el juego el usuario utilizará alguna de las siguientes letras p
 ## Determina si se completo el nivel o no
 
 | No. | Función | Kanban | Fecha terminación |
-| --- | --- | --- | --- |
+| --- | --- | --- | 07/04/24 |
 | 53. | Evaluar si el nivel esta terminado.  | Por hacer | - |
-| 54. | Si el nivel esta terminado cargar el siguiente nivel.  | Por hacer | - |
+| 54. | Si el nivel esta terminado cargar el siguiente nivel.  | hecho | - |
 
 ## Función extra
 
