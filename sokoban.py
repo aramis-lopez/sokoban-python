@@ -135,6 +135,8 @@ class Sokoban:
             self.mover_arriba()
         elif direccion.lower() == 's':
             self.mover_abajo()
+        elif direccion.lower() == 'q': ##
+            self.powerup()
         else:
             print("Dirección no válida. Por favor, introduce 'a','d','w','s' para mover a su personaje.")
             return self.mapa
@@ -348,6 +350,39 @@ class Sokoban:
             print('No se puede mover la caja, tienes una pared.')
             return self.mapa
     
+    def powerup (self): ##
+
+        if self.powerup_count < 2:  # Verificar si se han usado menos de dos powerups
+            if self.mapa[self.personaje_fila][self.personaje_columna - 1] == 3: # verifica si tiene pared
+                # quita la pared 
+                self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila][self.personaje_columna -1] = 4, 0,
+                self.personaje_columna -= 1
+                print("Has utilizado un powerup.")
+                self.powerup_count += 1
+
+        elif self.powerup_count < 2:
+            if self.mapa[self.personaje_fila][self.personaje_columna + 1] == 3:
+                self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila][self.personaje_columna +1] = 4, 0,
+                self.personaje_columna += 1
+                print("Has utilizado un powerup.")
+                self.powerup_count += 1
+        
+        elif self.powerup_count < 2:
+            if self.mapa[self.personaje_fila -1][self.personaje_columna] == 3:
+                self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila -1][self.personaje_columna] = 4, 0,
+                self.personaje_fila -= 1
+                print("Has utilizado un powerup.")
+                self.powerup_count += 1
+        
+        elif self.powerup_count < 2:
+            if self.mapa[self.personaje_fila +1][self.personaje_columna] == 3:
+                self.mapa[self.personaje_fila][self.personaje_columna], self.mapa[self.personaje_fila +1][self.personaje_columna] = 4, 0,
+                self.personaje_fila += 1
+                print("Has utilizado un powerup.")
+                self.powerup_count += 1
+
+        else:
+            print("Ya has utilizado todos los powerups disponibles para este mapa.")
     
     def jugar(self):
         while True:
